@@ -1,17 +1,17 @@
 'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
-import styles from './header.module.scss';
+import styles from './index.module.scss';
 import LogoSvg from '@/components/assets/logo.svg';
 import MenuSvg from '@/components/assets/icon-menu.svg';
-import { NavItemInterface } from '../common/interfaces';
+import { INavItem } from '@/types';
 import ModalCloseButton from '@/components/assets/icon-menu-close.svg';
 
-type NavItemsType = {
-  navItems: NavItemInterface[];
+type NavItemsProps = {
+  navItems: INavItem[];
 };
 
-export default function Header({ navItems }: NavItemsType) {
+export default function Header({ navItems }: NavItemsProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
@@ -42,7 +42,7 @@ export default function Header({ navItems }: NavItemsType) {
           </button>
         </div>
         <div className={`${styles.drawerBody} ${styles.row}`}>
-          {navItems?.map(({ name, url }: NavItemInterface) => {
+          {navItems?.map(({ name, url }) => {
             return (
               <Link href={url} key={name} className={styles.drawerLink}>
                 {name}
@@ -52,7 +52,7 @@ export default function Header({ navItems }: NavItemsType) {
         </div>
       </div>
       <nav className={styles.menuList}>
-        {navItems?.map(({ name, url }: NavItemInterface) => {
+        {navItems?.map(({ name, url }) => {
           return (
             <Link href={url} key={name} className={styles.link}>
               {name}

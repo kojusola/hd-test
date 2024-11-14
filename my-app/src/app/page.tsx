@@ -1,34 +1,26 @@
-'use client';
-import styles from './page.module.scss';
-import React, { useEffect, useState } from 'react';
-import { httpClient } from '@/lib/axiosInstance';
-import { DataInterface } from '@/components/common/interfaces';
-
-import Header from '@/components/header';
+import React from 'react';
 import Hero from '@/components/hero';
+import styles from './page.module.scss';
+import Header from '@/components/header';
 import Articles from '@/components/articles';
+import { INavItem, IMainArticle, ISidebar, IArticle } from '@/types';
 
-export default function Home() {
-  const [data, setData] = useState<DataInterface | null>(null);
+interface ApiResponse {
+  sidebar: ISidebar;
+  navItems: INavItem[];
+  articles: IArticle[];
+  mainArticle: IMainArticle;
+}
 
-  useEffect(() => {
-    httpClient
-      .get('/data')
-      .then((response) => {
-        setData(response.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching data:', error);
-      });
-  }, []);
+export default async function Home() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/data`);
+  const data: ApiResponse = await response.json();
+
   return (
     <div className={styles.container}>
-      <Header navItems={data?.navItems || []} />
-      <Hero
-        mainArticle={(data && data?.mainArticle) || null}
-        sidebar={(data && data?.sidebar && data.sidebar) || null}
-      />
-      <Articles articles={data?.articles || []} />
+      <Header navItems={data?.navItems} />
+      <Hero mainArticle={data?.mainArticle} sidebar={data?.sidebar} />
+      <Articles articles={data?.articles} />
     </div>
   );
 }

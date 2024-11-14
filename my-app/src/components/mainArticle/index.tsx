@@ -2,13 +2,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './index.module.scss';
-import { MainArticleInterface } from '../common/interfaces';
+import { IMainArticle } from '../../types';
 
-type MainArticleType = {
-  mainArticle: MainArticleInterface | null;
+type MainArticleProps = {
+  mainArticle: IMainArticle | null;
 };
 
-export default function MainArticle({ mainArticle }: MainArticleType) {
+export default function MainArticle({ mainArticle }: MainArticleProps) {
   return (
     <div className={styles.container}>
       <div className={styles.mainImageDesktop}>

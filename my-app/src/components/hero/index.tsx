@@ -1,11 +1,14 @@
 'use client';
-import Link from 'next/link';
 import styles from './index.module.scss';
-import { HeroInterface } from '../common/interfaces';
+import { ISidebar, IMainArticle } from '../../types';
 import MainArticle from '../mainArticle';
 import SideBar from '../sidebar';
+interface HeroProps {
+  sidebar: ISidebar | null;
+  mainArticle: IMainArticle | null;
+}
 
-export default function Hero({ mainArticle, sidebar }: HeroInterface) {
+export default function Hero({ mainArticle, sidebar }: HeroProps) {
   return (
     <div className={styles.container}>
       <aside className={styles.mainArticle}>
