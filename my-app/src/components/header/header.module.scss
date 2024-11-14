@@ -1,0 +1,147 @@
+@use '@/styles/breakpoints.module.scss' as bp;
+@use '@/styles/variables.module.scss' as vr;
+
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include bp.lg {
+    padding: 20px 0px;
+  }
+}
+
+.logo {
+  width: 65px;
+  height: 40px;
+  @include bp.lg {
+    width: 65px;
+    height: 40px;
+  }
+}
+
+.menu {
+  border: none;
+  background: none;
+
+  @include bp.lg {
+    display: none;
+  }
+}
+
+.menuList {
+  display: flex;
+  gap: 38px;
+  display: none;
+  @include bp.lg {
+    display: flex;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: vr.$dark-greyish-blue;
+  font-weight: 700;
+  opacity: 0.6;
+  transition: color 0.3s;
+  &:hover {
+    color: vr.$soft-red;
+  }
+}
+
+.btnToggleSidebar {
+  float: right;
+  font-size: 16px;
+  border: none;
+  background: none;
+}
+
+.btnCloseSidebar {
+  float: right;
+  height: auto;
+  font-size: 16px;
+}
+
+.sidebar {
+  width: 60%;
+  right: -70%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  background: vr.$off-white;
+  transition: right 0.3s;
+  z-index: 99;
+  padding: 20px 30px;
+  @include bp.lg {
+    display: none;
+  }
+}
+
+.overlay {
+  width: 100%;
+  right: -100%;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  background: #000000;
+  opacity: 0.3;
+  transition: right 0.4s;
+  z-index: 50;
+  @include bp.lg {
+    display: none;
+  }
+}
+
+.overlayOpened {
+  right: 0;
+  left: 0;
+}
+
+.opened {
+  right: 0;
+}
+
+.row {
+  flex-grow: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+  height: 31px;
+  margin-bottom: 80px;
+}
+
+.header .text {
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.header button {
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.drawerBody {
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.drawerLink {
+  text-decoration: none;
+  color: vr.$dark-greyish-blue;
+  font-weight: 700;
+  font-size: 20px;
+}

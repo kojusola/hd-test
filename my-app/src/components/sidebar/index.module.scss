@@ -1,0 +1,49 @@
+@use '@/styles/breakpoints.module.scss' as bp;
+@use '@/styles/variables.module.scss' as vr;
+
+.container {
+  width: 100%;
+  height: 100%;
+  background-color: vr.$dark-blue;
+  @include bp.lg {
+    width: 100%;
+    height: 100%;
+    background-color: vr.$dark-blue;
+  }
+}
+
+.header {
+  color: vr.$soft-orange;
+  font-weight: 700;
+  font-size: 32px;
+  margin: 0;
+  padding: 27px 20px;
+}
+.containerSidebar {
+  padding: 0 20px;
+}
+.sidebar {
+  padding: 20px 0px;
+  border-bottom-color: hsl(36, 100%, 99%, 0.3);
+  border-bottom-style: solid;
+}
+
+.sidebarLink {
+  margin-bottom: 15px;
+  font-weight: 700;
+  font-size: 20px;
+  color: white;
+  text-decoration: none;
+  text-transform: capitalize;
+  margin-top: 5px;
+  transition: color 0.3s;
+  &:hover {
+    color: vr.$soft-orange;
+  }
+}
+
+.sidebarText {
+  color: vr.$off-white;
+  opacity: 0.6;
+  font-size: 16px;
+}

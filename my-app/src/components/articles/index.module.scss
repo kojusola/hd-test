@@ -1,0 +1,82 @@
+@use '@/styles/breakpoints.module.scss' as bp;
+@use '@/styles/variables.module.scss' as vr;
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin-top: 70px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  //   justify-content: stretch;
+  @include bp.lg {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+}
+
+.article {
+  display: flex;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  gap: 15px;
+  margin-bottom: 25px;
+  @include bp.lg {
+    width: 100%;
+    max-width: 100%;
+    justify-content: space-between;
+    margin: 0;
+  }
+}
+
+.articleImage {
+  position: relative;
+  width: 120px;
+  height: 150px;
+  @include bp.lg {
+    height: 100%;
+    width: 40%;
+  }
+}
+
+.articleText {
+  width: 100%;
+  max-width: 240px;
+  @include bp.lg {
+    width: 55%;
+    height: 100%;
+  }
+}
+
+.articleNumber {
+  margin: 0px;
+  color: vr.$soft-red;
+  margin-bottom: 20px;
+  font-size: 35px;
+  line-height: 35px;
+  font-weight: 800;
+}
+
+.articleTitle {
+  font-weight: 800;
+  text-decoration: none;
+  color: vr.$dark-blue;
+  transition: color 0.3s;
+  &:hover {
+    color: vr.$soft-red;
+  }
+}
+
+.articleDescription {
+  color: vr.$dark-greyish-blue;
+  opacity: 0.6;
+  font-weight: 600;
+  line-height: 23px;
+  margin: 0;
+  margin-top: 20px;
+  @include bp.lg {
+    line-height: 20px;
+  }
+}

@@ -1,0 +1,26 @@
+@use '@/styles/breakpoints.module.scss' as bp;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 40px;
+  margin-top: 40px;
+  @include bp.lg {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 0;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+}
+
+.mainArticle {
+  width: 100%;
+  grid-column: 1 / 9;
+}
+
+.sidebar {
+  width: 100%;
+  grid-column: 9 / 13;
+}

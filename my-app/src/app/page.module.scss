@@ -1,0 +1,15 @@
+@use '@/styles/breakpoints.module.scss' as bp;
+@use '@/styles/variables.module.scss' as vr;
+
+.container {
+  width: 100%;
+  height: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
+  overflow-x: hidden;
+  background-color: vr.$off-white;
+  @include bp.lg {
+    padding: 80px;
+  }
+}

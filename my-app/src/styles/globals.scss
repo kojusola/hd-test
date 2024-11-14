@@ -1,0 +1,10 @@
+@use './breakpoints.module.scss' as bp;
+@use '@/styles/variables.module.scss' as vr;
+body {
+  font-family: var(--font-inter);
+  background-color: vr.$off-white;
+}
+
+p {
+  font-size: 15px;
+}
